@@ -1,0 +1,82 @@
+.clock {
+    position: relative;
+    height: 200px;
+    width: 200px;
+    border: 1px solid black;
+    margin: 20px;
+    border-radius: 50%;
+    display: none;
+}
+.hand {
+    position: absolute;
+    width: 50%;
+    height: 1px;
+    background: black;
+    transform-origin: right top;
+    bottom: 50%;
+    transition: transform 0.05s cubic-bezier(0.1, 2.7, 0.58, 1);
+}
+.hour-hand {
+    transform: rotate(90deg);
+    height: 5px;
+}
+.minute-hand {
+    transform: rotate(180deg);
+    height: 3px;
+}
+.second-hand {
+    transform: rotate(270deg);
+}
+.number {
+    position: absolute;
+}
+.number12 { top: 15%; left: 50%;  
+}
+
+.accordion-container {
+    border: 1px solid;
+    margin: 10px 0;
+    display: none   ;
+}
+.accordion-title {
+    padding: 15px 10px;
+    border-bottom: 1px solid;
+}
+.accordion-content {
+    padding: 15px 10px;
+    display: none;
+    transition: display 2s ease-in-out;
+}
+.expand{
+   display: block;
+}
+.caurosel-container {
+    height: 500px;
+    width: 700px;
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+}
+button {
+    height: 40px;
+    width: 70px;
+}
+.image-container {
+    height: 100%;
+    width: 500px;
+    display: flex;
+    overflow: auto;
+    transition: scroll 1s ease-out;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+}
+
+.image-holder {
+    height: calc(100% - 20px);
+    width: 100%;
+}
+.image-item {
+    height: calc(100% - 50px);
+    margin: 25px;
+    min-width: calc(100% - 50px);
+}
