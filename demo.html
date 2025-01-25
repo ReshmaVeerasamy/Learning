@@ -27,9 +27,20 @@
 
       <div>Image carousel</div>
       <div id="carousel" class="caurosel-container">
-        <button id="prev">prev</button>
+        <button id="prev" disabled>prev</button>
         <div class="image-container"></div>
         <button id="next">next</button>
       </div>
+      <div>count Down timer</div>
+      <div>
+        <input id="hours" type="number" placeholder="hh" value="" min="0" />
+        <input id="minutes" type="number" placeholder="mm" value="" min="0" max="59"/>
+        <input id="seconds" type="number" placeholder="ss" value="" min="0" max="59"/>
+      </div>
+      <div class="error-msg">input error</div>
+      <button id="start">Start</button>
+      <button id="pause">pause</button>
+      <button id="resume">resume</button>
+      <button id="reset">reset</button>
       <script src="./demo.js"></script>
 </body>

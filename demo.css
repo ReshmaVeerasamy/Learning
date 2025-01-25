@@ -56,6 +56,7 @@
     align-items: center;
     justify-content: space-between;
     display: flex;
+    display: none;
 }
 button {
     height: 40px;
@@ -79,4 +80,8 @@ button {
     height: calc(100% - 50px);
     margin: 25px;
     min-width: calc(100% - 50px);
+}
+.error-msg{
+    color: red;
+    display: none;
 }

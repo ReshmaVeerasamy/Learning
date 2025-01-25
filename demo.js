@@ -55,6 +55,9 @@ var imageData = [
     { id: 0, title: "first image", imageUrl: "https://images.unsplash.com/photo-1516117172878-fd2c41f4a759", altText: "first-img" },
     { id: 0, title: "second image", imageUrl: "https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0", altText: "second-img" },
     { id: 0, title: "third image", imageUrl: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750", altText: "third-img" },
+    { id: 0, title: "first image", imageUrl: "https://images.unsplash.com/photo-1516117172878-fd2c41f4a759", altText: "first-img" },
+    { id: 0, title: "second image", imageUrl: "https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0", altText: "second-img" },
+    { id: 0, title: "third image", imageUrl: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750", altText: "third-img" },
 ]
 
 var cauroselImageContainer = document.querySelector(".image-container");
@@ -80,18 +83,85 @@ for (let i = 0; i < imageData.length; i++) {
     cauroselImageContainer.appendChild(imageItem);
 }
 
-document.querySelector("#next").addEventListener("click", function () {
+document.querySelector("#next").addEventListener("click", function (event) {
     let updatedscrollLeft = cauroselImageContainer.scrollLeft + 500;
     cauroselImageContainer.scrollTo({
-        left: cauroselImageContainer.scrollLeft + 500,
+        left: updatedscrollLeft,
     })
     document.querySelector("#next").disabled = ((updatedscrollLeft + 500) === cauroselImageContainer.scrollWidth);
+    document.querySelector("#prev").disabled = (updatedscrollLeft === 0);
+    console.log(cauroselImageContainer.scrollLeft)
 })
 
-document.querySelector("#prev").addEventListener("click", function () {
+document.querySelector("#prev").addEventListener("click", function (event) {
     let updatedscrollLeft = cauroselImageContainer.scrollLeft - 500;
     cauroselImageContainer.scrollTo({
-        left: cauroselImageContainer.scrollLeft - 500,
+        left: updatedscrollLeft,
     })
-    document.querySelector("#prev").disabled = ((updatedscrollLeft - 500) === 0);
+    document.querySelector("#next").disabled = ((updatedscrollLeft + 500) === cauroselImageContainer.scrollWidth);
+    document.querySelector("#prev").disabled = (updatedscrollLeft === 0);
+    console.log(cauroselImageContainer.scrollLeft)
 })
+
+
+
+
+var errorMsg = document.querySelector(".error-msg");
+var countDowntimer;
+var duration;
+
+function updateInput( hours, minutes, seconds) {
+    document.querySelector("#hours").value = hours;
+    document.querySelector("#minutes").value =  minutes;
+    document.querySelector("#seconds").value =  seconds;
+}
+
+function updateTimer() {
+    let hours, minutes, seconds
+    --duration;
+    hours = parseInt(duration / 3600);
+    minutes = parseInt((duration % 3600) / 60);
+    seconds = parseInt((duration % 3600) % 60)
+    updateInput(hours,minutes,seconds);
+    if(duration == 0)
+        clearInterval(countDowntimer);
+    
+}
+
+
+function showerrorMsg() {
+    errorMsg.style.display = "block";
+}
+
+document.querySelector("#start").addEventListener("click", function () {
+
+    let hours = document.querySelector("#hours").value != "" ? parseInt(document.querySelector("#hours").value) : 0;
+    let minutes = document.querySelector("#minutes").value != "" ? parseInt(document.querySelector("#minutes").value) : 0;
+    let seconds = document.querySelector("#seconds").value != "" ? parseInt(document.querySelector("#seconds").value) : 0;
+
+    if ((seconds > 59 || seconds < 0) || (minutes > 59 || minutes < 0) || hours < 0) {
+        showerrorMsg();
+        return;
+    }
+    duration = (hours * 3600) + (minutes * 60) + seconds;
+
+    if (duration > 0)
+        countDowntimer = setInterval(updateTimer, 1000);
+
+    return;
+})
+
+document.querySelector("#pause").addEventListener("click",function(){
+    clearInterval(countDowntimer);
+});
+
+document.querySelector("#resume").addEventListener("click",function(){
+    if (duration > 0)
+        countDowntimer = setInterval(updateTimer, 1000);
+});
+
+document.querySelector("#reset").addEventListener("click",function(){
+    duration = 0;
+    clearInterval(countDowntimer);
+    updateInput("","","");
+});

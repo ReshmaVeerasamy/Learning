@@ -1,1 +1,63 @@
--- Revamp analog logic
+
+4. Contact Form
+Build a contact form with basic client-side validation, learning about forms, event listeners, and validation logic.
+
+10. Drag-and-Drop
+Implement drag-and-drop functionality for rearranging items within a list or container, practicing advanced user interaction handling.
+
+11. Generate Table
+Dynamically generate tables based on user input, focusing on array manipulation and DOM creation.
+
+12. Grail Layout
+Create a responsive layout using CSS and JavaScript, understanding how to build complex layouts with minimal code.
+
+13. Infinite Scroll
+Implement infinite scrolling to load more content dynamically as the user scrolls, learning about scroll events and data fetching.
+
+14. Installment Calculator
+Build a loan installment calculator to understand input handling, calculations, and real-time updates in the UI.
+
+15. Like Button
+A simple like button with animation, perfect for practicing state changes and DOM updates in response to user actions.
+
+16. List Filter
+Create a search functionality to filter through a list of items, practicing input handling and conditional rendering.
+
+17. Modal Popup
+A reusable modal component that opens and closes based on user actions, mastering the concept of overlays and modals.
+
+18. Multi-Step Form
+A form with multiple steps, each validated before proceeding to the next step, teaching form management and validation logic.
+
+19. Navbar
+Build a responsive navigation bar with dropdown menus to understand layouts, CSS, and JavaScript event handling.
+
+20. **Progress Bar**
+Implement a progress bar that visually represents the completion of a task, learning state management and dynamic DOM updates.
+
+21. Signup Form
+Develop a user signup form with form validation, covering input validation, event handling, and form submission.
+
+22. Star Rating
+A star-based rating system to collect feedback, challenging your DOM manipulation and event handling skills.
+
+24. Tabs
+A tab component that switches between different sections of content, practicing state changes and event-driven rendering.
+
+25. Temperature Calculator
+Convert temperatures between different units like Celsius and Fahrenheit, practicing real-time user input handling.
+
+26. Theme Mode
+Toggle between light and dark themes using JavaScript and CSS, storing the user’s preference in local storage.
+
+27. To-Do List
+A task management app with CRUD (Create, Read, Update, Delete) operations, perfect for practicing state management.
+
+29. Tweet Box
+A simple tweet box with a character count limit, helping you practice input handling and live validation.
+
+30. Virtualized List
+Render large lists efficiently using virtual scrolling, learning how to manage large datasets with optimized rendering.
+
+31. Weather App
+A weather application that fetches and displays weather data based on user input, helping you understand API integration.
