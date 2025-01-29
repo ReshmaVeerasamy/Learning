@@ -165,3 +165,34 @@ document.querySelector("#reset").addEventListener("click",function(){
     clearInterval(countDowntimer);
     updateInput("","","");
 });
+
+function fetchUserData(userId) {
+    return new Promise((resolve, reject) => {
+        fetch(`https://jsonplaceholder.typicode.com/users/${userId}`)
+            .then((response) => {
+                if (!response.ok) {
+                    reject("Failed to fetch data");
+                } else {
+                    return response.json();
+                }
+            })
+            .then((data) => {
+                resolve(data);  // Resolve with the fetched data
+            })
+            .catch((error) => {
+                reject(error);  // Reject in case of an error
+            });
+    });
+}
+
+// Call the function and handle the promise
+fetchUserData(1)
+    .then((userData) => {
+        console.log("User Data:", userData);
+    })
+    .catch((error) => {
+        console.log("Error:", error);
+    })
+    .finally(() => {
+        console.log("API call finished.");
+    });
