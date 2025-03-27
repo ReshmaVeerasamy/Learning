@@ -110,10 +110,10 @@ var errorMsg = document.querySelector(".error-msg");
 var countDowntimer;
 var duration;
 
-function updateInput( hours, minutes, seconds) {
+function updateInput(hours, minutes, seconds) {
     document.querySelector("#hours").value = hours;
-    document.querySelector("#minutes").value =  minutes;
-    document.querySelector("#seconds").value =  seconds;
+    document.querySelector("#minutes").value = minutes;
+    document.querySelector("#seconds").value = seconds;
 }
 
 function updateTimer() {
@@ -122,10 +122,10 @@ function updateTimer() {
     hours = parseInt(duration / 3600);
     minutes = parseInt((duration % 3600) / 60);
     seconds = parseInt((duration % 3600) % 60)
-    updateInput(hours,minutes,seconds);
-    if(duration == 0)
+    updateInput(hours, minutes, seconds);
+    if (duration == 0)
         clearInterval(countDowntimer);
-    
+
 }
 
 
@@ -151,19 +151,19 @@ document.querySelector("#start").addEventListener("click", function () {
     return;
 })
 
-document.querySelector("#pause").addEventListener("click",function(){
+document.querySelector("#pause").addEventListener("click", function () {
     clearInterval(countDowntimer);
 });
 
-document.querySelector("#resume").addEventListener("click",function(){
+document.querySelector("#resume").addEventListener("click", function () {
     if (duration > 0)
         countDowntimer = setInterval(updateTimer, 1000);
 });
 
-document.querySelector("#reset").addEventListener("click",function(){
+document.querySelector("#reset").addEventListener("click", function () {
     duration = 0;
     clearInterval(countDowntimer);
-    updateInput("","","");
+    updateInput("", "", "");
 });
 
 function fetchUserData(userId) {
@@ -196,3 +196,57 @@ fetchUserData(1)
     .finally(() => {
         console.log("API call finished.");
     });
+
+function convertToRoman(num) {
+    var romanNumeral = {
+        M: 1000,
+        CM: 900,
+        D: 500,
+        CD: 400,
+        C: 100,
+        XC: 90,
+        L: 50,
+        XL: 40,
+        X: 10,
+        IX: 9,
+        V: 5,
+        IV: 4,
+        I: 1
+    };
+    var roman = '';
+
+    for (var key in romanNumeral) {
+        while (num >= romanNumeral[key]) {
+            roman += key;
+            num -= romanNumeral[key];
+        }
+    }
+    return roman;
+}
+
+console.log(convertToRoman(44));
+
+function convertToNumber(str) { //XLIV
+    var romanMap = {
+        M: 1000,
+        D: 500,
+        C: 100,
+        L: 50,
+        X: 10,
+        V: 5,
+        I: 1
+    }
+    var dig = 0;
+    for (let i = 0; i < str.length; i++) { //10 50
+
+        if ((romanMap[str[i]] < romanMap[str[i + 1]])) {
+            dig = dig + (romanMap[str[i+1]] - romanMap[str[i]]);
+            i++;
+        } else {
+            dig = dig + romanMap[str[i]];
+        }
+    }
+    return dig
+}
+
+console.log(convertToNumber("MMCMXCIX"));

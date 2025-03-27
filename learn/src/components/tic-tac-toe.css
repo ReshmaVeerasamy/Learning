@@ -1,0 +1,28 @@
+.game {
+    width: max-content;
+    margin:50px auto;
+}
+
+.board {
+    display: grid;
+    width: max-content;
+    margin: 10px auto;
+}
+
+.grid-item {
+    display: grid;
+    place-items: center;
+    width: 60px;
+    height: 60px;
+    border: 1px solid black;
+    font-size: 25px;
+}
+
+.disable {
+    pointer-events: none;
+    background-color: rgba(175, 174, 174, 0.679);
+}
+
+.grid-item:hover{
+    background-color: lightgray;
+}
